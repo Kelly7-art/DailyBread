@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Daily Bread — Bible Verse For Today | Free Daily Bible App</title>
+
+<!-- SEO Meta Tags -->
+<meta name="description" content="Daily Bread - Get a fresh Bible verse every day. Save favourites, share God's Word and grow in faith. Free Bible app for Android.">
+<meta name="keywords" content="Daily Bread, Bible app, daily Bible verse, daily quotations, Bible quotes, Christian app, verse of the day, free Bible app, morning devotional, daily bread app, scripture of the day, inspirational quotes, daily bread Bible">
+<meta name="author" content="Daily Bread App">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://your-site.vercel.app/">
+
+<!-- Open Graph (WhatsApp, Facebook previews) -->
+<meta property="og:title" content="Daily Bread — Bible Verse For Today">
+<meta property="og:description" content="Start every morning with God's Word. Fresh Bible verse daily, save favourites and share with friends. Free Android app.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://your-site.vercel.app/">
+<meta property="og:site_name" content="Daily Bread">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Daily Bread — Bible Verse For Today">
+<meta name="twitter:description" content="Start every morning with God's Word. Fresh Bible verse daily, free Android app.">
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #C9933A;
+    --gold-light: #E8B96A;
+    --cream: #F5ECD7;
+    --parchment: #EDD9A3;
+    --dark: #1A0F00;
+    --brown: #3D1F00;
+    --sunset-top: #2B1B6B;
+    --sunset-mid: #8B2FC9;
+    --sunset-orange: #E8631A;
+    --sunset-yellow: #F5C842;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Lora', Georgia, serif;
+    background: var(--dark);
+    color: var(--cream);
+    overflow-x: hidden;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 50% 100%, #E8631A44 0%, transparent 70%),
+      radial-gradient(ellipse 60% 40% at 50% 90%, #F5C84266 0%, transparent 60%),
+      radial-gradient(ellipse 100% 80% at 50% 110%, #8B2FC922 0%, transparent 70%),
+      linear-gradient(180deg, #0D0820 0%, #1E0E45 25%, #5C1F6B 45%, #A0390F 65%, #C8590A 80%, #7A3008 100%);
+    z-index: 0;
+  }
+
+  /* Sun rays */
+  .rays {
+    position: absolute;
+    bottom: -10%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120vw;
+    height: 80vh;
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  .ray {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 2px;
+    height: 70%;
+    transform-origin: bottom center;
+    background: linear-gradient(to top, #F5C84255, transparent);
+    animation: rayPulse 4s ease-in-out infinite;
+  }
+
+  .ray:nth-child(1)  { transform: translateX(-50%) rotate(-70deg); animation-delay: 0s; }
+  .ray:nth-child(2)  { transform: translateX(-50%) rotate(-55deg); animation-delay: 0.3s; }
+  .ray:nth-child(3)  { transform: translateX(-50%) rotate(-42deg); animation-delay: 0.6s; }
+  .ray:nth-child(4)  { transform: translateX(-50%) rotate(-30deg); animation-delay: 0.2s; }
+  .ray:nth-child(5)  { transform: translateX(-50%) rotate(-18deg); animation-delay: 0.8s; }
+  .ray:nth-child(6)  { transform: translateX(-50%) rotate(-8deg);  animation-delay: 0.4s; }
+  .ray:nth-child(7)  { transform: translateX(-50%) rotate(0deg);   animation-delay: 0s;   width: 3px; background: linear-gradient(to top, #F5C84288, transparent); }
+  .ray:nth-child(8)  { transform: translateX(-50%) rotate(8deg);   animation-delay: 0.4s; }
+  .ray:nth-child(9)  { transform: translateX(-50%) rotate(18deg);  animation-delay: 0.8s; }
+  .ray:nth-child(10) { transform: translateX(-50%) rotate(30deg);  animation-delay: 0.2s; }
+  .ray:nth-child(11) { transform: translateX(-50%) rotate(42deg);  animation-delay: 0.6s; }
+  .ray:nth-child(12) { transform: translateX(-50%) rotate(55deg);  animation-delay: 0.3s; }
+  .ray:nth-child(13) { transform: translateX(-50%) rotate(70deg);  animation-delay: 0s; }
+
+  @keyframes rayPulse {
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 1; }
+  }
+
+  /* Birds */
+  .birds {
+    position: absolute;
+    top: 20%;
+    right: 15%;
+    z-index: 2;
+    animation: birdsFloat 6s ease-in-out infinite;
+  }
+
+  .bird {
+    width: 12px;
+    height: 5px;
+    border-top: 2px solid #C9933A88;
+    border-radius: 50% 50% 0 0;
+    display: inline-block;
+    margin: 0 3px;
+  }
+
+  @keyframes birdsFloat {
+    0%, 100% { transform: translateY(0) translateX(0); }
+    50% { transform: translateY(-12px) translateX(8px); }
+  }
+
+  /* Mountains silhouette */
+  .mountains {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 35%;
+    z-index: 2;
+  }
+
+  .mountains svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  /* Hero content */
+  .hero-content {
+    position: relative;
+    z-index: 10;
+    max-width: 680px;
+    animation: heroFadeIn 1.2s ease-out forwards;
+  }
+
+  @keyframes heroFadeIn {
+    from { opacity: 0; transform: translateY(30px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .logo-wrap {
+    margin-bottom: 1.5rem;
+    animation: logoDrop 1s ease-out 0.2s both;
+  }
+
+  @keyframes logoDrop {
+    from { opacity: 0; transform: translateY(-20px) scale(0.9); }
+    to   { opacity: 1; transform: translateY(0) scale(1); }
+  }
+
+  .logo-icon {
+    font-size: 4rem;
+    display: block;
+    filter: drop-shadow(0 4px 20px #C9933A88);
+    animation: bookGlow 3s ease-in-out infinite;
+  }
+
+  @keyframes bookGlow {
+    0%, 100% { filter: drop-shadow(0 4px 20px #C9933A66); }
+    50%       { filter: drop-shadow(0 4px 40px #F5C842CC); }
+  }
+
+  .logo-text {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.8rem, 8vw, 5rem);
+    font-weight: 900;
+    color: var(--gold-light);
+    text-shadow:
+      0 2px 4px rgba(0,0,0,0.8),
+      0 0 40px #C9933A66,
+      0 0 80px #C9933A33;
+    letter-spacing: -0.02em;
+    line-height: 1;
+    margin-top: 0.3rem;
+  }
+
+  .tagline {
+    font-family: 'Lora', serif;
+    font-style: italic;
+    font-size: clamp(1rem, 3vw, 1.3rem);
+    color: var(--parchment);
+    opacity: 0.9;
+    margin-top: 0.5rem;
+    letter-spacing: 0.04em;
+  }
+
+  /* Verse card */
+  .verse-card {
+    margin: 2.5rem auto;
+    max-width: 560px;
+    background: linear-gradient(135deg, #F5ECD7 0%, #EDD9A3 50%, #E8C87A 100%);
+    border: 2px solid var(--gold);
+    border-radius: 4px;
+    padding: 2rem 2.5rem;
+    position: relative;
+    box-shadow:
+      0 0 0 1px #C9933A44,
+      0 8px 40px rgba(0,0,0,0.6),
+      inset 0 1px 0 rgba(255,255,255,0.3);
+    animation: cardRise 1s ease-out 0.5s both;
+  }
+
+  @keyframes cardRise {
+    from { opacity: 0; transform: translateY(20px) scale(0.97); }
+    to   { opacity: 1; transform: translateY(0) scale(1); }
+  }
+
+  .verse-card::before,
+  .verse-card::after {
+    content: '✦';
+    position: absolute;
+    color: var(--gold);
+    font-size: 0.8rem;
+    opacity: 0.6;
+  }
+  .verse-card::before { top: 8px; left: 12px; }
+  .verse-card::after  { bottom: 8px; right: 12px; }
+
+  .verse-label {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 1.1rem;
+    color: var(--brown);
+    text-align: center;
+    margin-bottom: 1rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid #C9933A66;
+    letter-spacing: 0.03em;
+  }
+
+  .verse-text {
+    font-family: 'Lora', serif;
+    font-size: clamp(1rem, 2.5vw, 1.15rem);
+    color: var(--dark);
+    text-align: center;
+    line-height: 1.75;
+    font-weight: 500;
+  }
+
+  .verse-ref {
+    text-align: center;
+    margin-top: 1rem;
+    font-family: 'Lora', serif;
+    font-style: italic;
+    color: #C0392B;
+    font-size: 0.95rem;
+    font-weight: 600;
+  }
+
+  /* CTA */
+  .cta-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    animation: ctaFadeIn 1s ease-out 0.8s both;
+  }
+
+  @keyframes ctaFadeIn {
+    from { opacity: 0; transform: translateY(15px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .btn-download {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    background: linear-gradient(135deg, #C9933A 0%, #E8B96A 50%, #C9933A 100%);
+    color: var(--dark);
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 1.1rem;
+    padding: 1rem 2.5rem;
+    border-radius: 50px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    box-shadow:
+      0 4px 20px #C9933A66,
+      0 0 0 1px #E8B96A44,
+      inset 0 1px 0 rgba(255,255,255,0.3);
+    transition: all 0.3s ease;
+    letter-spacing: 0.02em;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .btn-download::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, transparent 30%, rgba(255,255,255,0.2) 50%, transparent 70%);
+    transform: translateX(-100%);
+    transition: transform 0.5s ease;
+  }
+
+  .btn-download:hover::before {
+    transform: translateX(100%);
+  }
+
+  .btn-download:hover {
+    transform: translateY(-3px) scale(1.03);
+    box-shadow:
+      0 8px 30px #C9933A88,
+      0 0 0 1px #E8B96A88,
+      inset 0 1px 0 rgba(255,255,255,0.3);
+  }
+
+  .btn-download:active {
+    transform: translateY(0) scale(0.99);
+  }
+
+  .coming-soon {
+    font-size: 0.8rem;
+    color: var(--parchment);
+    opacity: 0.7;
+    font-style: italic;
+  }
+
+  /* ── FEATURES SECTION ── */
+  .features {
+    background: linear-gradient(180deg, #1A0F00 0%, #0D0820 100%);
+    padding: 5rem 2rem;
+    position: relative;
+  }
+
+  .features::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 5vw, 2.8rem);
+    color: var(--gold-light);
+    text-align: center;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 0 30px #C9933A44;
+  }
+
+  .section-sub {
+    font-style: italic;
+    color: var(--parchment);
+    opacity: 0.7;
+    text-align: center;
+    margin-bottom: 3.5rem;
+    font-size: 1rem;
+  }
+
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .feature-card {
+    background: linear-gradient(135deg, #2A1500 0%, #1A0D00 100%);
+    border: 1px solid #C9933A33;
+    border-radius: 8px;
+    padding: 2rem 1.5rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .feature-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .feature-card:hover {
+    border-color: #C9933A66;
+    transform: translateY(-4px);
+    box-shadow: 0 8px 30px rgba(201, 147, 58, 0.15);
+  }
+
+  .feature-card:hover::before {
+    opacity: 1;
+  }
+
+  .feature-icon {
+    font-size: 2.5rem;
+    display: block;
+    margin-bottom: 1rem;
+  }
+
+  .feature-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    color: var(--gold-light);
+    margin-bottom: 0.5rem;
+  }
+
+  .feature-desc {
+    font-size: 0.9rem;
+    color: var(--parchment);
+    opacity: 0.8;
+    line-height: 1.6;
+  }
+
+  /* ── SCREENSHOT SECTION ── */
+  .preview {
+    padding: 5rem 2rem;
+    background: linear-gradient(180deg, #0D0820 0%, #1A0800 100%);
+    text-align: center;
+    position: relative;
+  }
+
+  .preview::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  }
+
+  .phone-mockup {
+    display: inline-block;
+    background: linear-gradient(135deg, #2A1500, #1A0D00);
+    border: 2px solid var(--gold);
+    border-radius: 40px;
+    padding: 1.5rem 1rem;
+    margin-top: 2rem;
+    box-shadow:
+      0 0 0 4px #1A0800,
+      0 0 0 5px #C9933A44,
+      0 20px 60px rgba(201, 147, 58, 0.3);
+    max-width: 300px;
+    position: relative;
+  }
+
+  .phone-mockup::before {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 8px;
+    background: var(--gold);
+    border-radius: 4px;
+    margin: 0 auto 1rem;
+    opacity: 0.5;
+  }
+
+  .phone-screen {
+    background: linear-gradient(180deg, #2B1B6B, #8B2FC9 30%, #E8631A 65%, #7A3008 100%);
+    border-radius: 24px;
+    padding: 1.5rem 1rem;
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .screen-logo {
+    font-size: 2rem;
+  }
+
+  .screen-title {
+    font-family: 'Playfair Display', serif;
+    color: var(--gold-light);
+    font-size: 1.2rem;
+    font-weight: 700;
+  }
+
+  .screen-card {
+    background: linear-gradient(135deg, #F5ECD7, #EDD9A3);
+    border: 1px solid var(--gold);
+    border-radius: 4px;
+    padding: 1rem;
+    width: 100%;
+    text-align: center;
+  }
+
+  .screen-card-label {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 0.75rem;
+    color: var(--brown);
+    margin-bottom: 0.5rem;
+    padding-bottom: 0.3rem;
+    border-bottom: 1px solid #C9933A44;
+  }
+
+  .screen-verse {
+    font-size: 0.7rem;
+    color: var(--dark);
+    line-height: 1.5;
+    font-family: 'Lora', serif;
+  }
+
+  .screen-ref {
+    font-size: 0.65rem;
+    color: #C0392B;
+    font-style: italic;
+    margin-top: 0.4rem;
+  }
+
+  .screen-btn {
+    background: var(--dark);
+    color: #E8631A;
+    font-size: 0.65rem;
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+    font-family: 'Lora', serif;
+    font-weight: 600;
+    border: 1px solid #E8631A44;
+  }
+
+  .screen-nav {
+    background: #EDD9A3;
+    border-radius: 12px;
+    padding: 0.5rem 1rem;
+    display: flex;
+    gap: 1.5rem;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .nav-item {
+    font-size: 0.6rem;
+    color: var(--dark);
+    text-align: center;
+    font-family: 'Lora', serif;
+  }
+
+  /* ── DOWNLOAD SECTION ── */
+  .download-section {
+    padding: 6rem 2rem;
+    background: linear-gradient(180deg, #1A0800 0%, #0D0820 50%, #0A0015 100%);
+    text-align: center;
+    position: relative;
+  }
+
+  .download-section::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  }
+
+  .download-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, #C9933A11 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .download-section .section-title {
+    font-size: clamp(2rem, 6vw, 3.5rem);
+  }
+
+  .download-section p {
+    max-width: 500px;
+    margin: 0 auto 2.5rem;
+    color: var(--parchment);
+    opacity: 0.8;
+    line-height: 1.8;
+    font-size: 1rem;
+  }
+
+  .btn-big-download {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+    background: linear-gradient(135deg, #C9933A 0%, #F5C842 50%, #C9933A 100%);
+    color: var(--dark);
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: 1.3rem;
+    padding: 1.2rem 3rem;
+    border-radius: 50px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    box-shadow:
+      0 6px 40px #C9933A88,
+      inset 0 1px 0 rgba(255,255,255,0.4);
+    transition: all 0.3s ease;
+    letter-spacing: 0.02em;
+    position: relative;
+    overflow: hidden;
+    animation: pulseGlow 3s ease-in-out infinite;
+  }
+
+  @keyframes pulseGlow {
+    0%, 100% { box-shadow: 0 6px 40px #C9933A88, inset 0 1px 0 rgba(255,255,255,0.4); }
+    50%       { box-shadow: 0 6px 60px #C9933ACC, 0 0 80px #C9933A44, inset 0 1px 0 rgba(255,255,255,0.4); }
+  }
+
+  .btn-big-download:hover {
+    transform: translateY(-4px) scale(1.04);
+  }
+
+  .btn-big-download:active {
+    transform: translateY(0) scale(0.99);
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #070412;
+    padding: 2.5rem 2rem;
+    text-align: center;
+    border-top: 1px solid #C9933A22;
+  }
+
+  footer p {
+    color: var(--parchment);
+    opacity: 0.4;
+    font-size: 0.85rem;
+    font-style: italic;
+  }
+
+  footer .footer-logo {
+    font-family: 'Playfair Display', serif;
+    color: var(--gold);
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    opacity: 0.8;
+  }
+
+  /* ── DIVIDER ── */
+  .divider {
+    text-align: center;
+    color: var(--gold);
+    opacity: 0.4;
+    font-size: 1.2rem;
+    letter-spacing: 0.5rem;
+    padding: 1rem 0;
+  }
+
+  /* Scroll reveal */
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @media (max-width: 480px) {
+    .verse-card { padding: 1.5rem; }
+    .btn-download { font-size: 1rem; padding: 0.9rem 2rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+
+  <!-- Sun rays -->
+  <div class="rays">
+    <div class="ray"></div><div class="ray"></div><div class="ray"></div>
+    <div class="ray"></div><div class="ray"></div><div class="ray"></div>
+    <div class="ray"></div><div class="ray"></div><div class="ray"></div>
+    <div class="ray"></div><div class="ray"></div><div class="ray"></div>
+    <div class="ray"></div>
+  </div>
+
+  <!-- Birds -->
+  <div class="birds">
+    <span class="bird"></span><span class="bird"></span><span class="bird"></span>
+  </div>
+
+  <!-- Mountains -->
+  <div class="mountains">
+    <svg viewBox="0 0 1440 320" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,320 L0,200 L120,140 L240,180 L360,80 L480,140 L560,100 L640,60 L720,100 L800,50 L880,90 L960,70 L1080,120 L1200,90 L1320,150 L1440,110 L1440,320 Z" fill="#1A0800" opacity="0.9"/>
+      <path d="M0,320 L0,240 L200,180 L300,220 L440,150 L580,200 L680,160 L760,190 L860,140 L980,170 L1100,150 L1220,180 L1440,160 L1440,320 Z" fill="#1A0800" opacity="0.7"/>
+      <path d="M0,320 L0,290 L180,260 L360,280 L540,250 L720,270 L900,255 L1080,265 L1260,258 L1440,270 L1440,320 Z" fill="#2A0F00" opacity="0.95"/>
+    </svg>
+  </div>
+
+  <div class="hero-content">
+    <div class="logo-wrap">
+      <span class="logo-icon">📖</span>
+      <div class="logo-text">Daily Bread</div>
+      <div class="tagline">Your Daily Bible Verse, Every Morning</div>
+    </div>
+
+    <div class="verse-card">
+      <div class="verse-label">✦ Bible Verse For Today ✦</div>
+      <p class="verse-text" id="verse-text">Loading today's verse...</p>
+      <div class="verse-ref" id="verse-ref">♦ &nbsp;</div>
+    </div>
+
+    <div class="cta-wrap">
+      <a href="https://www.dropbox.com/scl/fi/a0qp6wuy7etd4xnox8hbh/DailyBread_1.0.apk?rlkey=jxw3wi6xeo9uyx4tk6lpushla&st=6vojzsv4&dl=1" class="btn-download">
+        📲 Download Free App
+      </a>
+      <span class="coming-soon">Free • No Ads • Always Inspiring</span>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="features">
+  <div class="section-title reveal">Why Daily Bread?</div>
+  <div class="section-sub reveal">God's Word, beautifully delivered every day</div>
+
+  <div class="features-grid">
+    <div class="feature-card reveal">
+      <span class="feature-icon">🌅</span>
+      <div class="feature-title">Daily Verses</div>
+      <p class="feature-desc">Wake up to a fresh, hand-picked Bible verse every single morning to set the tone for your day.</p>
+    </div>
+    <div class="feature-card reveal">
+      <span class="feature-icon">❤️</span>
+      <div class="feature-title">Save Favourites</div>
+      <p class="feature-desc">Found a verse that speaks to your heart? Save it to your favourites and revisit it anytime.</p>
+    </div>
+    <div class="feature-card reveal">
+      <span class="feature-icon">📤</span>
+      <div class="feature-title">Share God's Word</div>
+      <p class="feature-desc">Spread the love — share any verse as text or a beautiful image to WhatsApp, Facebook and more.</p>
+    </div>
+    <div class="feature-card reveal">
+      <span class="feature-icon">📖</span>
+      <div class="feature-title">Daily Reminders</div>
+      <p class="feature-desc">Open the app each morning and let God's Word be the first thing that fills your heart and mind.</p>
+    </div>
+    <div class="feature-card reveal">
+      <span class="feature-icon">✨</span>
+      <div class="feature-title">Beautiful Design</div>
+      <p class="feature-desc">A warm, stunning sunrise theme that makes reading God's Word feel like a peaceful morning ritual.</p>
+    </div>
+    <div class="feature-card reveal">
+      <span class="feature-icon">🆓</span>
+      <div class="feature-title">Completely Free</div>
+      <p class="feature-desc">No subscriptions. No hidden fees. Daily Bread is a gift — just like the Word itself.</p>
+    </div>
+  </div>
+</section>
+
+<!-- APP PREVIEW -->
+<section class="preview">
+  <div class="section-title reveal">See It In Action</div>
+  <div class="section-sub reveal">Simple, clean and deeply meaningful</div>
+
+  <div class="phone-mockup reveal">
+    <div class="phone-screen">
+      <div class="screen-logo">📖</div>
+      <div class="screen-title">Daily Bread</div>
+      <div class="screen-card">
+        <div class="screen-card-label">Bible Verse For Today</div>
+        <div class="screen-verse">"The Lord is my shepherd; I shall not want."</div>
+        <div class="screen-ref">♦ Psalm 23:1</div>
+      </div>
+      <div class="screen-btn">❤️ Saved To Favourites</div>
+      <div class="screen-nav">
+        <div class="nav-item">🔖<br>Favorites</div>
+        <div class="nav-item">📄<br>About</div>
+        <div class="nav-item">👤<br>Invite</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DOWNLOAD -->
+<section class="download-section" id="download">
+  <div class="download-glow"></div>
+  <div class="section-title reveal">Ready to Start Your Day with God's Word?</div>
+  <p class="reveal">Join thousands of believers who begin every morning with Daily Bread. It's free, beautiful, and filled with faith.</p>
+
+  <div class="reveal">
+    <a href="https://www.dropbox.com/scl/fi/a0qp6wuy7etd4xnox8hbh/DailyBread_1.0.apk?rlkey=jxw3wi6xeo9uyx4tk6lpushla&st=6vojzsv4&dl=1" class="btn-big-download">
+      📲 Download Daily Bread
+    </a>
+    <br><br>
+    <span class="coming-soon" style="opacity:0.6;">Available on Android • Free Download</span>
+  </div>
+
+  <div class="divider" style="margin-top: 3rem;">✦ &nbsp; ✦ &nbsp; ✦</div>
+
+  <blockquote style="font-style:italic; color: var(--parchment); opacity:0.6; max-width:400px; margin: 1.5rem auto 0; font-size:0.95rem; line-height:1.8;">
+    "Your word is a lamp to my feet and a light to my path."<br>
+    <span style="font-size:0.85rem; color: var(--gold); opacity:0.8;">— Psalm 119:105</span>
+  </blockquote>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">📖 Daily Bread</div>
+  <p>© 2025 Daily Bread App. Made with faith & love.</p>
+  <p style="margin-top:0.3rem;">Bringing God's Word to your pocket, every day.</p>
+</footer>
+
+<script>
+  // ── OurManna API — Verse of the Day ──
+  async function loadVerse() {
+    const verseEl = document.getElementById('verse-text');
+    const refEl   = document.getElementById('verse-ref');
+    try {
+      const res  = await fetch('https://beta.ourmanna.com/api/v1/get/?format=json&order=daily');
+      const data = await res.json();
+      const verse = data.verse.details;
+      verseEl.textContent = verse.text;
+      refEl.innerHTML     = '♦ ' + verse.reference;
+    } catch (e) {
+      // Fallback verse if API fails
+      verseEl.textContent = 'Do you not know? Have you not heard? The Lord is the everlasting God, the Creator of the ends of the earth. He will not grow tired or weary, and his understanding no one can fathom.';
+      refEl.innerHTML     = '♦ Isaiah 40:28';
+    }
+  }
+  loadVerse();
+
+  // ── Scroll reveal ──
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 80);
+      }
+    });
+  }, { threshold: 0.1 });
+  reveals.forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
